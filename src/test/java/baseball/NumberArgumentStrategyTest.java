@@ -6,7 +6,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class RangeNumberAnswerMakerStrategyTest {
+class NumberArgumentStrategyTest {
 
     @ParameterizedTest
     @CsvSource(value = {"1:1", "123:3", "123456789:9"}, delimiter = ':')
