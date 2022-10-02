@@ -1,5 +1,5 @@
 package baseball;
 
 public interface ArgumentStrategy {
-    boolean isCorrectParameter(String parameter, int answerLength);
+    void checkCorrectParameter(String parameter, int answerLength);
 }

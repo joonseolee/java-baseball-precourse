@@ -7,15 +7,19 @@ public class NumberArgumentStrategy implements ArgumentStrategy {
     private final Pattern pattern = Pattern.compile("-?\\d+(\\.\\d+)?");
 
     @Override
-    public boolean isCorrectParameter(String parameter, int answerLength) {
+    public void checkCorrectParameter(String parameter, int answerLength) {
         if (Objects.isNull(parameter) || parameter.length() == 0) {
-            return false;
+            throw new IllegalArgumentException();
         }
 
         if (parameter.length() != answerLength) {
-            return false;
+            throw new IllegalArgumentException();
         }
 
-        return pattern.matcher(parameter).matches();
+        boolean isCorrect = pattern.matcher(parameter).matches();
+
+        if (!isCorrect) {
+            throw new IllegalArgumentException();
+        }
     }
 }
