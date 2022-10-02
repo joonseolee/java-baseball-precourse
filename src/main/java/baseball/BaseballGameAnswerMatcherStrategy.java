@@ -2,11 +2,17 @@ package baseball;
 
 public class BaseballGameAnswerMatcherStrategy implements AnswerMatcherStrategy {
 
+    private final ArgumentStrategy argumentStrategy;
+
+    public BaseballGameAnswerMatcherStrategy(ArgumentStrategy argumentStrategy) {
+        this.argumentStrategy = argumentStrategy;
+    }
+
     @Override
     public void drawConclusion(String answer, String userAnswer) {
+        argumentStrategy.checkCorrectParameter(userAnswer, answer.length());
         int ballCount = 0;
         int strikeCount = 0;
-
         for (int index = 0 ; index < answer.length() ; index++) {
             String textExceptCurrentIndexCharacter = answer.replace(String.valueOf(answer.charAt(index)), StringConstant.EMPTY);
             ballCount += calculateBallCount(textExceptCurrentIndexCharacter, userAnswer.charAt(index));
