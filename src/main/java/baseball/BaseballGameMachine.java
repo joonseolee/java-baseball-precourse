@@ -27,6 +27,7 @@ public class BaseballGameMachine {
 
     private void playGame() {
         int userAnswer = INITIAL_USER_ANSWER;
+
         while (this.currentAnswer != userAnswer) {
             String rawUserAnswer = Console.readLine();
             answerMatcherStrategy.drawConclusion(String.valueOf(currentAnswer), rawUserAnswer);
